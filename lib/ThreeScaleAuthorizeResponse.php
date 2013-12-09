@@ -12,6 +12,10 @@ require_once(dirname(__FILE__) . '/ThreeScaleResponse.php');
  * Object that wraps responses from successful authorize calls.
  */
 class ThreeScaleAuthorizeResponse extends ThreeScaleResponse {
+
+  private $applicationId = null;
+  private $applicationKey = null;
+  private $redirectUrl = null;
   private $usageReports = array();
   private $plan;
 
@@ -50,6 +54,60 @@ class ThreeScaleAuthorizeResponse extends ThreeScaleResponse {
    */
   public function getUsageReports() {
     return $this->usageReports;
+  }
+
+  /**
+   * Set the application id (for oauth_authorize-responses only)
+   * 
+   * @param string $id
+   */
+  public function setApplicationId($id) {
+    $this->applicationId = $id;
+  }
+    
+  /**
+   * Get the application id (for oauth_authorize-responses only)
+   * 
+   * @return string
+   */
+  public function getApplicationId() {
+    return $this->applicationId;
+  }
+    
+  /**
+   * Set the application key/secret (for oauth_authorize-responses only)
+   * 
+   * @param string $key
+   */
+  public function setApplicationKey($key) {
+    $this->applicationKey = $key;
+  }
+    
+  /**
+   * Get the application key/secret (for oauth_authorize-responses only)
+   * 
+   * @return string
+   */
+  public function getApplicationKey() {
+    return $this->applicationKey;
+  }
+
+  /**
+   * Set the redirect_url (for oauth_authorize-responses only)
+   * 
+   * @param string $url
+   */
+  public function setRedirectUrl($url) {
+    $this->redirectUrl = $url;
+  }
+    
+  /**
+   * Get the redirect_url (for oauth_authorize-responses only)
+   * 
+   * @return string
+   */
+  public function getRedirectUrl() {
+    return $this->redirectUrl;
   }
 }
 

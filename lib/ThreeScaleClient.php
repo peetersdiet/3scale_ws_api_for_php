@@ -409,6 +409,19 @@ class ThreeScaleClient {
       }
     }
 
+    if ($doc->application) {
+      $app = $doc->application;
+      if ($app->id) {
+        $response->setApplicationId((string) $app->id);
+      }
+      if ($app->key) {
+        $response->setApplicationKey((string) $app->key);
+      }
+      if ($app->redirect_url) {
+        $response->setRedirectUrl((string) $app->redirect_url);
+      }
+    }
+    
     return $response;
   }
 
